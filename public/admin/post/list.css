@@ -1,0 +1,24 @@
+body {
+    position: relative;
+}
+.opacity {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 510;
+    background: #000;
+    opacity: 0.6;
+    display:none;
+}
+.edit_ajax {
+    display:none;
+    z-index: 520;
+    padding:0;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 2px 2px 2px 4px grey;
+}

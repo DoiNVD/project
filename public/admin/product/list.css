@@ -1,0 +1,6 @@
+.image_describe .image a{
+    display: block;
+    text-align: center;
+    text-decoration: underline;
+    color: blue;
+}
