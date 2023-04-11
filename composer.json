@@ -5,7 +5,8 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+       
+        "php": "^7.4.8",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "hardevine/shoppingcart": "^3.2",
@@ -15,6 +16,7 @@
         "laravel/ui": "*",
         "unisharp/laravel-filemanager": "^2.6"
     },
+
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
@@ -65,8 +67,13 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "platform-check": false,
+        "platform": {
+            "php": "7.4.8"
+        }
     },
+
     "minimum-stability": "dev",
     "prefer-stable": true
 }

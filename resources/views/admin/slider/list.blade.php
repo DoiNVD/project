@@ -63,7 +63,7 @@ Danh sách Slider
                         </td>
                         <td>
                             @can('edit-slider')
-                            <a href="{{url('admin/slider/edit/'.$slider->id)}}" class="btn btn-success btn-sm rounded-0 text-white action_edit" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                            <a href="{{url('admin/slider/edit/'.$slider->id)}}" class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                             @endcan
 
                             @can('delete-slider')

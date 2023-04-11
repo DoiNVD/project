@@ -43,7 +43,7 @@ Route::get('/', [HomeController::class, 'index']);
 // ->name('home')->middleware('verified');
 //page product
 Route::get('/chi-tiet-san-pham/{slug}' . '.html', [ProductController::class, 'detail'])->name('product.detail');
-Route::get('/san-pham/{slug}', [ProductController::class, 'index'])->name('product.cat');
+Route::get('/san-pham/{slug}', [App\Http\Controllers\Client\ProductController::class, 'index'])->name('product.cat');
 Route::post('/san-pham/tim-kiem-san-pham', [ProductController::class, 'search'])->name('search');
 Route::get('/search-product', [ProductController::class, 'result_search'])->name('product.search');
 
@@ -75,16 +75,17 @@ Route::group(['prefix' => 'laravel-filemanager'], function () {
 
 
 // ROUTE PHÍA AMIN 
-Auth::routes(['verify' => true]);
-Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
-Route::get('/admin/dashboard/index', [DashboardController::class, 'index'])->middleware('auth');
+//xác thực sau khi đăng nhập
+Auth::routes(['verify' => true]); 
+// Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
+// Route::get('/admin/dashboard/index', [DashboardController::class, 'index'])->middleware('auth');
 // ->middleware('auth','verified'  );
 Route::group([
   'prefix' => 'admin',
   'middleware' => ['auth']
 ], function () {
 
-  Route::get('/dashboard', [DashboardController::class, 'index']);
+  Route::get('/dashboard/index', [DashboardController::class, 'index'])->name('dashboard');
 
   //user người dùng
   Route::get('user/list', [AdminUserController::class, 'index'])->name('user.list')->middleware('can:list-user');
@@ -192,3 +193,33 @@ Route::group([
 });
 
 Route::get('/mail', [MailController::class, 'sendmail']);
+
+
+
+
+public function has_chil($data, $id){
+        foreach($data as $v){
+          if($v->parent_id ==$id) return true;
+        }
+        return false;
+}
+
+
+
+public function data_tree($data, $parent_id=0, $level=0){
+  $resull=array();
+foreach($date as $v){
+  if($v->parent_id==$parent_id ){
+    $v['level']=$level;
+    $resull[]=$v;
+    $id=$resull->id
+    if(has_chil($data, $v->id)){
+      $resull_chil=data_tree($data, $v['id'],$level+1 );
+      $resull= array_merge($resull, $resull_chil);
+    }
+}
+
+  }
+}
+return $resull;
+}

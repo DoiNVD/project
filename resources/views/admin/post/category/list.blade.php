@@ -190,5 +190,7 @@ Danh sách Danh mục bài viết
         </form>
     </div>
 </div>
-
+@endsection
+@section('js')
+    <script src="{{ url('public/admin/post/list.js') }}"></script>
 @endsection

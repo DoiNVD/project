@@ -149,7 +149,7 @@ class CartController extends Controller
 
             session(['order' => $order]);
             foreach (Cart::content() as $item) {
-                Detail_Order::create([
+                \App\Models\Detail_Order::create([
                     'order_code' => $order_code,
                     'product_id' => $item->id,
                     'qty' => $item->qty,

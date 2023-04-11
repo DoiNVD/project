@@ -69,7 +69,7 @@ class AdminUserController extends Controller
     public function create()
     {
         //
-        $roles = Role::all();
+        $roles = \App\Models\role::all();
         return view('admin.user.add', compact('roles'));
     }
 

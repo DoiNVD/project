@@ -6,6 +6,7 @@ use App\Policies\UserPolicy;
 use App\Policies\PostPolicy;
 use App\Policies\PagePolicy;
 use App\Policies\RolePolicy;
+use \App\Models\Role;
 use App\Policies\PermissionPolicy;
 use App\Policies\ProductPolicy;
 use App\Policies\OrderPolicy;
@@ -25,11 +26,11 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+     '\App\Models\Model' => 'App\Policies\ModelPolicy',
         User::class => UserPolicy::class,
         Post::class => PostPolicy::class,
         Page::class => PagePolicy::class,
-        Role::class => RolePolicy::class,
+        \App\Models\Role::class => RolePolicy::class,
         Permission::class => PermissionPolicy::class,
         Product::class => ProductPolicy::class,
         Order::class => OrderPolicy::class,
