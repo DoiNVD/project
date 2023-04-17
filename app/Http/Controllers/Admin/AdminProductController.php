@@ -142,7 +142,7 @@ class AdminProductController extends Controller
             'product_thumb' => 'required|max:30000|mimes:jpg,JPG,png,PNG,GIF,gif',
             'product_image' => 'required',
             'product_image.*' => 'image|mimes:jpeg,png,jpg,JPG,gif,GIF,PNG,svg|max:30000',
-            'cat_parent' => 'required',
+            'cat_id' => 'required',
             'product_detail' => 'required',
             'product_desc' => 'required',
         ], [
@@ -158,7 +158,7 @@ class AdminProductController extends Controller
             'product_image' => 'Ảnh mô tả',
             'product_detail' => 'Chi tiết sản phẩm',
             'product_desc' => 'Mô tả sản phẩm',
-            'cat_parent' => "Danh mục cho bài viết"
+            'cat_id' => "Danh mục cho bài viết"
         ]);
         $product_thumb = $this->storageTraitUpload($request, 'product_thumb', 'product');
         $featured= $request->featured ;

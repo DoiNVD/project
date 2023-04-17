@@ -196,30 +196,3 @@ Route::get('/mail', [MailController::class, 'sendmail']);
 
 
 
-
-public function has_chil($data, $id){
-        foreach($data as $v){
-          if($v->parent_id ==$id) return true;
-        }
-        return false;
-}
-
-
-
-public function data_tree($data, $parent_id=0, $level=0){
-  $resull=array();
-foreach($date as $v){
-  if($v->parent_id==$parent_id ){
-    $v['level']=$level;
-    $resull[]=$v;
-    $id=$resull->id
-    if(has_chil($data, $v->id)){
-      $resull_chil=data_tree($data, $v['id'],$level+1 );
-      $resull= array_merge($resull, $resull_chil);
-    }
-}
-
-  }
-}
-return $resull;
-}
