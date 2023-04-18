@@ -82,11 +82,10 @@ Auth::routes(['verify' => true]);
 // ->middleware('auth','verified'  );
 Route::group([
   'prefix' => 'admin',
-  'middleware' => ['auth']
+  'middleware' => ['auth', 'verified']
 ], function () {
 
-  Route::get('/dashboard/index', [DashboardController::class, 'index'])->name('dashboard');
-
+  Route::get('/dashboard/index', [DashboardController::class, 'index']);
   //user người dùng
   Route::get('user/list', [AdminUserController::class, 'index'])->name('user.list')->middleware('can:list-user');
   Route::get('user/add', [AdminUserController::class, 'create'])->name('user.add')->middleware('can:add-user');;
